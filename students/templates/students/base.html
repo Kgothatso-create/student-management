@@ -1,0 +1,60 @@
+{% load static %}  <!-- Loads static files from the Django app -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student management system</title>
+
+    <!-- Link to Bootstrap CSS file -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+
+     <!-- Link to Font Awesome CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+    <body class="d-flex flex-column min-vh-100" >
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'index'%}">
+            <i class="fa-solid fa-graduation-cap fa-lg"></i> Student management system
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor03">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index'%}">
+                    <i class="fa-sharp fa-solid fa-list fa-lg"></i> All students
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add'%}">
+                    <i class="fa-sharp fa-solid fa-plus fa-lg"></i> Add student
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        {% block body %} <!-- Placeholder for the body content of child templates -->
+        {% endblock %}
+    </div>
+    <footer class="mt-auto mb-4">
+        <div class="text-center">
+            <span>
+                Copyright &copy; <script>document.write(new Date().getFullYear())</script> Student Academy
+            </span>
+        </div>
+    </footer>
+
+    <!-- Script for Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
